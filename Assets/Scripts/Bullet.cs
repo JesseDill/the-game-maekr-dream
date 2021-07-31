@@ -17,4 +17,10 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "Obstacle") return;
             Destroy(gameObject);
     }
+    public void IsReflected(Vector2 rotation)
+    {
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        rigidBody.velocity = rotation * -speed;
+    }
 }

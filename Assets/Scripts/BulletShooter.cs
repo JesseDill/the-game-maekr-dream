@@ -12,6 +12,7 @@ public class BulletShooter : Shooter
         float angle = CalculateAngle(target.position, firePoint.transform.position);
         firePoint.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
         bullet.GetComponent<Bullet>().speed = projectileSpeed;
     }
 
