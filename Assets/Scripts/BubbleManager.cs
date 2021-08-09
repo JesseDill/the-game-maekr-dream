@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class BubbleManager : MonoBehaviour
 {
-    Rigidbody2D rb;
-    [SerializeField] GameObject bubble;
+    Collider2D cd;
+    [SerializeField] GameObject player;
     bool isEnabled = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        cd = gameObject.GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -25,13 +25,13 @@ public class BubbleManager : MonoBehaviour
     }
     private void SummonBubble()
     {
-        bubble.SetActive(!bubble.activeSelf);
+        cd.enabled = !cd.isActiveAndEnabled;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (bubble.activeSelf && collision.gameObject.tag == "Obstacle")
+        if (collision.gameObject.tag == "Obstacle")
         {
-            Vector3 contactLocation = collision.bounds.ClosestPoint(bubble.transform.position);
+            Vector3 contactLocation = collision.bounds.ClosestPoint(gameObject.transform.position);
             Vector3 distanceFromCenterToContact = contactLocation - collision.bounds.center;
             Vector3 normalizedDisplacement = Vector3.Normalize(distanceFromCenterToContact);
             
