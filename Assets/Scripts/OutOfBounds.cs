@@ -12,8 +12,11 @@ public class OutOfBounds : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag =="Player")
-        collision.gameObject.GetComponent<Death>().KillPlayer();
-        sceneLoader.DelayedRestart(.5f);
+        if (collision.tag == "Player")
+        {
+            print("wtf");
+            collision.gameObject.GetComponent<Death>().KillPlayer();
+            sceneLoader.DelayedRestart(.5f);
+        }
     }
 }

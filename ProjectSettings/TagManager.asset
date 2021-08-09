@@ -9,6 +9,7 @@ TagManager:
   - Key
   - Throwable
   - Holdable
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
